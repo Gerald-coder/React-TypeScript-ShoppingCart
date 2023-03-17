@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "samsong",
+    "price": 10.4,
+    "imgUrl": "imgs/samsung.png"
+  },
+  {
+    "id": 2,
+    "name": "Nokia",
+    "price": 11.4,
+    "imgUrl": "imgs/nokia.jpeg"
+  },
+  {
+    "id": 3,
+    "name": "Iphone",
+    "price": 15.4,
+    "imgUrl": "imgs/iphone.png"
+  },
+  {
+    "id": 4,
+    "name": "huwai",
+    "price": 17.4,
+    "imgUrl": "imgs/huwai.jpg"
+  },
+  {
+    "id": 5,
+    "name": "snickers",
+    "price": 12.4,
+    "imgUrl": "imgs/snikkers.jpeg"
+  }
+]

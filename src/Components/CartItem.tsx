@@ -8,7 +8,6 @@ type cartItemProps = {
   quantity: number;
 };
 
-
 function CartItem({ id, quantity }: cartItemProps) {
   const { removeFromCart } = useShoppingCartContext();
   const item = shopItems.find((i) => i.id === id);
@@ -32,15 +31,15 @@ function CartItem({ id, quantity }: cartItemProps) {
           )}
         </div>
         <div className="text-muted" style={{ fontSize: ".75rem" }}>
-          {FormatCurrency(item.price)}
+          {FormatCurrency(item?.price || 0)}
         </div>
       </div>
-      <div> {FormatCurrency(item.price * quantity)}</div>
+      <div> {FormatCurrency((item?.price || 0) * quantity)}</div>
       <Button
         className="ms-2"
         variant="outline-danger"
         size="sm"
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeFromCart(item?.id || 0)}
       >
         &times;
       </Button>

@@ -7,6 +7,12 @@
   --BG-COLOR: "#FFF";
 }
 
-.container {
-  /* display: flex; */
+.nav {
+  color: red;
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    flex-direction: column;
+  }
 }

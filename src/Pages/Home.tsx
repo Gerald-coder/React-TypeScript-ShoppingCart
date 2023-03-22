@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Button, Card, Container } from "react-bootstrap";
 import "./home.css";
 import {
   backToTab,
@@ -39,6 +39,9 @@ function Home() {
           style={{ width: "500px", height: "400px" }}
         />
       </Card.Body>
+      <Container>
+        <h2 className="bg-danger">work in progress</h2>
+      </Container>
     </Card>
   );
 }

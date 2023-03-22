@@ -1,4 +1,3 @@
-import React from "react";
 import { Offcanvas, Stack } from "react-bootstrap";
 import { useShoppingCartContext } from "../Context/ShoppingCartContext";
 import CartItem from "./CartItem";
@@ -7,10 +6,16 @@ import FormatCurrency from "../Utilities/FormatCurrency";
 
 function ShoppingCart() {
   const { closeCart, isOpen, cartItems } = useShoppingCartContext();
-  console.log(isOpen);
 
+  const total = cartItems.reduce((total, cartitme) => {
+    const item = shopItem.find((i) => i.id === cartitme.id);
+    return total + (item?.price || 0) * cartitme.quantity;
+  }, 0);
+
+  const open = isOpen && total;
+  
   return (
-    <Offcanvas show={isOpen} placement="end" onHide={closeCart}>
+    <Offcanvas show={open} placement="end" onHide={closeCart}>
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Cart</Offcanvas.Title>
       </Offcanvas.Header>
@@ -21,12 +26,7 @@ function ShoppingCart() {
           })}
           <div className="ms-auto fw-bold">
             Total
-            {FormatCurrency(
-              cartItems.reduce((total, cartitme) => {
-                const item = shopItem.find((i) => i.id === cartitme.id);
-                return total + (item?.price || 0) * cartitme.quantity;
-              }, 0)
-            )}
+            {FormatCurrency(total)}
           </div>
         </Stack>
       </Offcanvas.Body>
